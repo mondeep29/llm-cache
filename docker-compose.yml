@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: llm-cache-postgres
+    environment:
+      POSTGRES_USER: llmcache
+      POSTGRES_PASSWORD: llmcache
+      POSTGRES_DB: llmcache
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql/001_init.sql:/docker-entrypoint-initdb.d/001_init.sql:ro
+
+volumes:
+  pgdata:

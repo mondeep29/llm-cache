@@ -1,0 +1,108 @@
+{
+  "embed_model": "nomic-embed-text",
+  "thresholds": [
+    {
+      "threshold": 0.85,
+      "tp": 27,
+      "fp": 14,
+      "tn": 34,
+      "fn": 13,
+      "precision": 0.6585365853658537,
+      "recall": 0.675,
+      "hit_rate": 0.4659090909090909,
+      "f1": 0.6666666666666667
+    },
+    {
+      "threshold": 0.9,
+      "tp": 16,
+      "fp": 4,
+      "tn": 44,
+      "fn": 24,
+      "precision": 0.8,
+      "recall": 0.4,
+      "hit_rate": 0.22727272727272727,
+      "f1": 0.5333333333333333
+    },
+    {
+      "threshold": 0.92,
+      "tp": 10,
+      "fp": 2,
+      "tn": 46,
+      "fn": 30,
+      "precision": 0.8333333333333334,
+      "recall": 0.25,
+      "hit_rate": 0.13636363636363635,
+      "f1": 0.3846153846153846
+    },
+    {
+      "threshold": 0.95,
+      "tp": 2,
+      "fp": 1,
+      "tn": 47,
+      "fn": 38,
+      "precision": 0.6666666666666666,
+      "recall": 0.05,
+      "hit_rate": 0.03409090909090909,
+      "f1": 0.09302325581395349
+    },
+    {
+      "threshold": 0.97,
+      "tp": 1,
+      "fp": 0,
+      "tn": 48,
+      "fn": 39,
+      "precision": 1.0,
+      "recall": 0.025,
+      "hit_rate": 0.011363636363636364,
+      "f1": 0.04878048780487806
+    }
+  ],
+  "latency_ms": {
+    "qwen3:1.7b": {
+      "embed_ms": 165.00049999967814,
+      "generate_ms": 5763.26065000012,
+      "semantic_hit_ms": 165.00049999967814,
+      "repeats": 2.0
+    },
+    "qwen3.5:9b": {
+      "embed_ms": 1608.0149499998697,
+      "generate_ms": 36254.25774999939,
+      "semantic_hit_ms": 1608.0149499998697,
+      "repeats": 2.0
+    }
+  },
+  "pair_count": 88,
+  "operating_threshold": 0.92,
+  "false_positives": [
+    {
+      "id": "miss-029",
+      "similarity": 0.9517960798122129,
+      "canonical": "Recommend a weekend trip from Boston under $200.",
+      "query": "Recommend a weekend trip from Boston under $2000."
+    },
+    {
+      "id": "miss-038",
+      "similarity": 0.9481018223754915,
+      "canonical": "Write a unit test for a Python function that adds two numbers.",
+      "query": "Write a unit test for a Python function that multiplies two numbers."
+    },
+    {
+      "id": "miss-023",
+      "similarity": 0.9067111684099028,
+      "canonical": "How can I reduce blue light from my monitor at night?",
+      "query": "How can I reduce brightness from my monitor at night?"
+    },
+    {
+      "id": "miss-032",
+      "similarity": 0.9034002191619718,
+      "canonical": "Explain overfitting in machine learning.",
+      "query": "Explain underfitting in machine learning."
+    },
+    {
+      "id": "miss-020",
+      "similarity": 0.8970543857451244,
+      "canonical": "How do I change a flat bicycle tire?",
+      "query": "How do I change a flat car tire?"
+    }
+  ]
+}

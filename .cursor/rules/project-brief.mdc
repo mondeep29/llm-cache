@@ -1,0 +1,16 @@
+---
+description: POC brief, architecture, and scope for the local LLM semantic cache
+alwaysApply: true
+---
+
+# Project brief
+
+Build a **local** semantic cache POC (Ollama + Postgres/pgvector). Optimize for readable code, a working eval harness with real numbers, and one-command Postgres setup. No production features.
+
+**Cache path:** exact hash of normalized prompt → embed + pgvector cosine (threshold) → Ollama generate + store.
+
+**Interface-first:** `CacheBackend` ABC; Postgres impl owns both tiers. Async throughout. Config from env vars with defaults.
+
+**Eval is the headline deliverable:** labeled pairs, threshold sweep, precision/recall/hit-rate, real latency, honest false positives, CSV + chart.
+
+Do not add auth, multi-tenancy, scaling, observability stacks, Helm/K8s, streaming, admin UI, or cloud LLM APIs.

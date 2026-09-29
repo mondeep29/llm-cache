@@ -1,0 +1,24 @@
+[project]
+name = "llm-cache"
+version = "0.1.0"
+description = "Local semantic cache POC for LLM calls (Ollama + Postgres/pgvector)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "asyncpg>=0.30.0",
+    "httpx>=0.28.0",
+    "pydantic-settings>=2.6.0",
+    "matplotlib>=3.9.0",
+]
+
+[tool.poetry]
+packages = [{ include = "llm_cache" }]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+llm-cache = "llm_cache.main:run"

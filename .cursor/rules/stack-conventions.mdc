@@ -1,0 +1,14 @@
+---
+description: Stack, models, and coding conventions for llm-cache
+alwaysApply: true
+---
+
+# Stack and conventions
+
+- FastAPI async, `asyncpg`, Poetry, stdlib logging
+- Docker Compose: **pgvector Postgres only**; FastAPI runs on the host
+- Ollama on `http://localhost:11434` — `POST /api/generate` and `POST /api/embed`
+- Default chat: `qwen3:1.7b` (smoke: `qwen3:0.6b`). Embeddings: `nomic-embed-text` (768-dim)
+- Env-configurable: Ollama URL, chat/embed models, similarity threshold, TTL, embedding dim
+- Vector column dim **must** match the embedding model
+- Log cache tier (`exact` / `semantic` / `miss`) and latency on every `/chat` call
